@@ -1,0 +1,445 @@
+
+/* =========================
+   LOGIN PAGE
+========================= */
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  background: #f7f8fa;
+  color: #171717;
+}
+
+
+/* =========================
+   LEFT BRAND SECTION
+========================= */
+
+.login-brand {
+  width: 45%;
+  min-height: 100vh;
+  background: #111111;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+}
+
+.login-brand-content {
+  width: 100%;
+  max-width: 480px;
+  min-height: 650px;
+  display: flex;
+  flex-direction: column;
+}
+/* =========================
+   LOGO
+========================= */
+
+.login-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.login-logo-image {
+  width: 42px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+.login-logo-name {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+/* =========================
+   BRAND MESSAGE
+========================= */
+
+.login-brand-message {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.login-brand-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  opacity: 0.55;
+  margin-bottom: 22px;
+}
+
+.login-brand-message h1 {
+  font-size: clamp(55px, 6vw, 86px);
+  line-height: 0.95;
+  letter-spacing: -5px;
+  margin: 0;
+  font-weight: 750;
+}
+
+.login-brand-message h1 span {
+  opacity: 0.45;
+}
+
+.login-brand-message p:last-child {
+  max-width: 380px;
+  margin-top: 30px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #a9a9a9;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.login-brand-footer {
+  font-size: 12px;
+  color: #666666;
+}
+
+
+/* =========================
+   RIGHT SECTION
+========================= */
+
+.login-section {
+  flex: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 35px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 470px;
+}
+
+
+/* =========================
+   MOBILE LOGO
+========================= */
+
+.login-mobile-logo {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 45px;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.login-heading {
+  margin-bottom: 32px;
+}
+
+.login-label {
+  margin: 0 0 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  color: #777777;
+}
+
+.login-heading h2 {
+  margin: 0;
+  font-size: 36px;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+}
+
+.login-heading p:last-child {
+  margin-top: 10px;
+  color: #777777;
+  font-size: 14px;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.login-form-group input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 49px;
+  border: 1px solid #dcdcdc;
+  border-radius: 11px;
+  padding: 0 14px;
+  background: white;
+  color: #171717;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.login-form-group input::placeholder {
+  color: #a5a5a5;
+}
+
+.login-form-group input:focus {
+  border-color: #111111;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================
+   LOGIN BUTTON
+========================= */
+
+.login-submit-button {
+  height: 50px;
+  border: none;
+  border-radius: 11px;
+  background: #111111;
+  color: white;
+  font-size: 14px;
+  font-weight: 650;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  transition: 0.2s ease;
+  margin-top: 4px;
+}
+
+.login-submit-button:hover:not(:disabled) {
+  background: #292929;
+  transform: translateY(-1px);
+}
+
+.login-submit-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.login-submit-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.login-submit-button span {
+  font-size: 18px;
+}
+
+
+/* =========================
+   REGISTER LINK
+========================= */
+
+.register-text {
+  margin-top: 26px;
+  text-align: center;
+  color: #777777;
+  font-size: 13px;
+}
+
+.register-link {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin-left: 5px;
+
+  color: #111111;
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+  .login-brand {
+    width: 38%;
+    padding: 35px;
+  }
+
+  .login-section {
+    padding: 40px 25px;
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .login-page {
+    display: block;
+    background: white;
+  }
+
+  .login-brand {
+    display: none;
+  }
+
+  .login-section {
+    min-height: 100vh;
+    padding: 35px 22px;
+    align-items: flex-start;
+  }
+
+  .login-card {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .login-mobile-logo {
+    display: flex;
+  }
+
+  .login-heading h2 {
+    font-size: 32px;
+  }
+
+}
+
+
+@media (max-width: 450px) {
+
+  .login-section {
+    padding: 28px 17px;
+  }
+
+  .login-heading h2 {
+    font-size: 29px;
+  }
+
+}
+.login-logo-image {
+  width: 150px;
+  height: auto;
+  display: block;
+}
+/* =========================
+   MOBILE LOGO
+========================= */
+
+@media (max-width: 768px) {
+  .login-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .login-logo-image {
+    width: 120px;
+    height: auto;
+    display: block;
+  }
+}
+/* =========================
+   DESKTOP LOGO
+========================= */
+
+.login-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.login-logo-image {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 10px;
+  display: block;
+}
+
+.login-logo-name {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+
+/* =========================
+   MOBILE LOGO
+========================= */
+
+.login-mobile-logo {
+  display: none;
+  align-items: center;
+  gap: 10px;
+}
+
+.login-mobile-logo-image {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 10px;
+  display: block;
+}
+/* =========================
+   MOBILE LOGIN LOGO FIX
+========================= */
+
+@media (max-width: 768px) {
+
+  .login-mobile-logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .login-mobile-logo-image {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .login-mobile-logo span {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .login-brand {
+    display: none;
+  }
+
+}
