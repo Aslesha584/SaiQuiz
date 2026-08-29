@@ -1,7 +1,7 @@
-
 import { useState } from "react";
 import axios from "axios";
 import "./Register.css";
+import saiquizLogo from "./assets/saiquiz-logo.jpeg";
 
 function Register() {
   const [name, setName] = useState("");
@@ -65,9 +65,13 @@ function Register() {
         <div className="brand-content">
 
           <div className="brand-logo">
-            <span className="brand-logo-mark">S</span>
-            <span className="brand-name">SaiQuiz</span>
-          </div>
+  <img
+    src={saiquizLogo}
+    alt="SaiQuiz"
+    className="register-logo-image"
+  />
+  <span className="brand-name">SaiQuiz</span>
+</div>
 
           <div className="brand-message">
             <p className="brand-label">
@@ -103,9 +107,13 @@ function Register() {
         <div className="register-card">
 
           <div className="mobile-logo">
-            <span className="brand-logo-mark">S</span>
-            <span>SaiQuiz</span>
-          </div>
+  <img
+    src={saiquizLogo}
+    alt="SaiQuiz"
+    className="register-logo-image"
+  />
+  <span>SaiQuiz</span>
+</div>
 
           <div className="register-heading">
 
