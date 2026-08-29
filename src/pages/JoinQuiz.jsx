@@ -50,7 +50,7 @@ function JoinQuiz() {
       setLoading(true);
 
       const response = await axios.get(
-        `http://localhost:5000/api/quizzes/${quizCode
+        `https://saiquiz-backend.onrender.com/api/quizzes/${quizCode
           .trim()
           .toUpperCase()}`
       );
@@ -208,7 +208,7 @@ const handleSubmitQuiz = async (automatic = false) => {
     );
 
     const response = await axios.post(
-      `http://localhost:5000/api/quizzes/${quiz._id}/submit`,
+      `https://saiquiz-backend.onrender.com/api/quizzes/${quiz._id}/submit`,
       {
         answers: submittedAnswers,
         startedAt: startedAt,

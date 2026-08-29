@@ -27,7 +27,7 @@ function Register() {
       setLoading(true);
 
       const response = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        "https://saiquiz-backend.onrender.com/api/auth/register",
         {
           name: name.trim(),
           email: email.trim(),

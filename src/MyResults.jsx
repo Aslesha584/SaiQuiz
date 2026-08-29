@@ -16,7 +16,7 @@ function MyResults() {
       const token = localStorage.getItem("token");
 
       const response = await axios.get(
-        "http://localhost:5000/api/submissions/student",
+        "https://saiquiz-backend.onrender.com/api/submissions/student",
         {
           headers: {
             Authorization: `Bearer ${token}`,

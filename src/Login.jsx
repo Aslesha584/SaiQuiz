@@ -24,7 +24,7 @@ function Login() {
       setLoading(true);
 
       const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://saiquiz-backend.onrender.com/api/auth/login",
         {
           email: email.trim(),
           password,
