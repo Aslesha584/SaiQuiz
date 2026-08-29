@@ -459,47 +459,8 @@ app.post(
     }
   }
 );
-
 // =========================
-// GET STUDENT SUBMISSIONS
-// =========================
-
-app.get(
-  "/api/submissions/student",
-  authMiddleware,
-  async (req, res) => {
-    try {
-      // Only students can access their submissions
-      if (req.user.role !== "student") {
-        return res.status(403).json({
-          message: "Only students can view submissions",
-        });
-      }
-
-      const submissions = await Submission.find({
-        studentId: req.user.id,
-      })
-        .populate("quizId", "title quizCode")
-        .sort({ submittedAt: -1 });
-
-      res.json({
-        submissions,
-      });
-
-    } catch (error) {
-      console.error(
-        "Error fetching student submissions:",
-        error
-      );
-
-      res.status(500).json({
-        message: "Failed to fetch submissions",
-      });
-    }
-  }
-);
-// =========================
-// GET TEACHER SUBMISSIONS
+// GET TEACHER'S OWN STUDENT RESULTS
 // =========================
 
 app.get(
@@ -507,15 +468,27 @@ app.get(
   authMiddleware,
   async (req, res) => {
     try {
-      // Only teachers can access student results
+      // Only teachers can view results
       if (req.user.role !== "teacher") {
         return res.status(403).json({
-          message: "Only teachers can view student results",
+          message: "Only teachers can view results",
         });
       }
 
-      const submissions = await Submission.find()
-        .populate("studentId", "name")
+      // Find only quizzes created by this teacher
+      const teacherQuizzes = await Quiz.find({
+        teacherId: req.user.id,
+      }).select("_id");
+
+      const quizIds = teacherQuizzes.map(
+        (quiz) => quiz._id
+      );
+
+      // Find submissions only for those quizzes
+      const submissions = await Submission.find({
+        quizId: { $in: quizIds },
+      })
+        .populate("studentId", "name email")
         .populate("quizId", "title quizCode")
         .sort({ submittedAt: -1 });
 
@@ -528,40 +501,6 @@ app.get(
         "Error fetching teacher results:",
         error
       );
-
-      res.status(500).json({
-        message: "Failed to fetch student results",
-      });
-    }
-  }
-);
-
-// =========================
-// GET ALL STUDENT RESULTS - TEACHER
-// =========================
-
-app.get(
-  "/api/submissions/teacher",
-  authMiddleware,
-  async (req, res) => {
-    try {
-      if (req.user.role !== "teacher") {
-        return res.status(403).json({
-          message: "Only teachers can view results",
-        });
-      }
-
-      const submissions = await Submission.find()
-        .populate("studentId", "name email")
-        .populate("quizId", "title quizCode")
-        .sort({ submittedAt: -1 });
-
-      res.json({
-        submissions,
-      });
-
-    } catch (error) {
-      console.error("Error fetching teacher results:", error);
 
       res.status(500).json({
         message: "Failed to fetch student results",
