@@ -325,14 +325,16 @@ footer {
   color: #858897;
   font-size: 13px;
 }
-
 @media (max-width: 750px) {
+
   .navbar {
     height: 68px;
   }
 
   .nav-link {
-    display: none;
+    display: block;
+    padding: 8px 10px;
+    font-size: 14px;
   }
 
   .hero {
