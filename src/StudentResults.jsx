@@ -27,11 +27,16 @@ function StudentResults() {
 
       setSubmissions(response.data.submissions);
 
-    } catch (error) {
-      console.error("Error loading results:", error);
-      alert("Unable to load student results.");
+   } catch (error) {
+  console.error("FULL ERROR:", error);
+  console.error("STATUS:", error.response?.status);
+  console.error("DATA:", error.response?.data);
 
-    } finally {
+  alert(
+    error.response?.data?.message ||
+    `Error ${error.response?.status || ""}: Unable to load your results.`
+  );
+} finally {
       setLoading(false);
     }
   };
