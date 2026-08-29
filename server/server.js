@@ -510,7 +510,45 @@ console.log("Teacher quizzes:", teacherQuizzes);
     }
   }
 );
+// =========================
+// GET STUDENT'S OWN RESULTS
+// =========================
 
+app.get(
+  "/api/submissions/student",
+  authMiddleware,
+  async (req, res) => {
+    try {
+      // Only students can view their own results
+      if (req.user.role !== "student") {
+        return res.status(403).json({
+          message: "Only students can view their results",
+        });
+      }
+
+      // Find only this student's submissions
+      const submissions = await Submission.find({
+        studentId: req.user.id,
+      })
+        .populate("quizId", "title quizCode")
+        .sort({ submittedAt: -1 });
+
+      res.json({
+        submissions,
+      });
+
+    } catch (error) {
+      console.error(
+        "Error fetching student results:",
+        error
+      );
+
+      res.status(500).json({
+        message: "Failed to fetch student results",
+      });
+    }
+  }
+);
 // =========================
 // START SERVER
 // =========================
