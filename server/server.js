@@ -460,57 +460,6 @@ app.post(
   }
 );
 // =========================
-// GET TEACHER'S OWN STUDENT RESULTS
-// =========================
-
-app.get(
-  "/api/submissions/teacher",
-  authMiddleware,
-  async (req, res) => {
-    try {
-      // Only teachers can view results
-      if (req.user.role !== "teacher") {
-        return res.status(403).json({
-          message: "Only teachers can view results",
-        });
-      }
-
-     const teacherQuizzes = await Quiz.find({
-  teacherId: req.user.id,
-}).select("_id");
-
-console.log("Teacher ID:", req.user.id);
-console.log("Teacher quizzes:", teacherQuizzes);
-
-      const quizIds = teacherQuizzes.map(
-        (quiz) => quiz._id
-      );
-
-      // Find submissions only for those quizzes
-      const submissions = await Submission.find({
-        quizId: { $in: quizIds },
-      })
-        .populate("studentId", "name email")
-        .populate("quizId", "title quizCode")
-        .sort({ submittedAt: -1 });
-
-      res.json({
-        submissions,
-      });
-
-    } catch (error) {
-      console.error(
-        "Error fetching teacher results:",
-        error
-      );
-
-      res.status(500).json({
-        message: "Failed to fetch student results",
-      });
-    }
-  }
-);
-// =========================
 // GET STUDENT'S OWN RESULTS
 // =========================
 
@@ -541,6 +490,54 @@ app.get(
     } catch (error) {
       console.error(
         "Error fetching student results:",
+        error
+      );
+
+      res.status(500).json({
+        message: "Failed to fetch student results",
+      });
+    }
+  }
+);
+// =========================
+// GET RESULTS FOR TEACHER'S OWN QUIZZES
+// =========================
+
+app.get(
+  "/api/submissions/teacher",
+  authMiddleware,
+  async (req, res) => {
+    try {
+      // Only teachers can access this
+      if (req.user.role !== "teacher") {
+        return res.status(403).json({
+          message: "Only teachers can view student results",
+        });
+      }
+
+      // Find only quizzes created by this teacher
+      const quizzes = await Quiz.find({
+        teacherId: req.user.id,
+      }).select("title quizCode");
+
+      const quizIds = quizzes.map((quiz) => quiz._id);
+
+      // Find submissions only for those quizzes
+      const submissions = await Submission.find({
+        quizId: { $in: quizIds },
+      })
+        .populate("studentId", "name email")
+        .populate("quizId", "title quizCode")
+        .sort({ submittedAt: -1 });
+
+      res.json({
+        quizzes,
+        submissions,
+      });
+
+    } catch (error) {
+      console.error(
+        "Error fetching teacher results:",
         error
       );
 

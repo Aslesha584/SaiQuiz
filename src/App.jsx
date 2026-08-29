@@ -5,7 +5,7 @@ import {
   Link,
   Navigate,
 } from "react-router-dom";
-
+import TeacherResults from "./TeacherResults";
 import CreateQuiz from "./pages/CreateQuiz";
 import JoinQuiz from "./pages/JoinQuiz";
 import "./App.css";
@@ -543,14 +543,14 @@ function App() {
 
         {/* STUDENT RESULTS - TEACHER ONLY */}
 
-        <Route
-          path="/student-results"
-          element={
-            <TeacherRoute>
-              <StudentResults />
-            </TeacherRoute>
-          }
-        />
+<Route
+  path="/student-results"
+  element={
+    <TeacherRoute>
+      <TeacherResults />
+    </TeacherRoute>
+  }
+/>
 
 
         {/* MY RESULTS - STUDENT ONLY */}
