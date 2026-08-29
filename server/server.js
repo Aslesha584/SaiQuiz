@@ -519,6 +519,7 @@ app.get(
   authMiddleware,
   async (req, res) => {
     try {
+      console.log("LOGGED USER:", req.user);
       // Only students can view their own results
       if (req.user.role !== "student") {
         return res.status(403).json({
