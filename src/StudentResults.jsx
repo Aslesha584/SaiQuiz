@@ -17,7 +17,7 @@ function StudentResults() {
       const token = localStorage.getItem("token");
 
       const response = await axios.get(
-        "https://saiquiz-backend.onrender.com/api/submissions/teacher",
+        "https://saiquiz-backend.onrender.com/api/submissions/student",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -63,13 +63,13 @@ function StudentResults() {
       <div className="results-heading">
         <div>
           <p className="results-label">
-            TEACHER DASHBOARD
-          </p>
+  STUDENT DASHBOARD
+</p>
 
-          <h1>Student Results</h1>
+          <h1>My Results</h1>
 
           <p>
-            View student submissions and quiz performance.
+           View your quiz submissions and performance.
           </p>
         </div>
 
