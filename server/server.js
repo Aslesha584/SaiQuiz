@@ -475,10 +475,12 @@ app.get(
         });
       }
 
-      // Find only quizzes created by this teacher
-      const teacherQuizzes = await Quiz.find({
-        teacherId: req.user.id,
-      }).select("_id");
+     const teacherQuizzes = await Quiz.find({
+  teacherId: req.user.id,
+}).select("_id");
+
+console.log("Teacher ID:", req.user.id);
+console.log("Teacher quizzes:", teacherQuizzes);
 
       const quizIds = teacherQuizzes.map(
         (quiz) => quiz._id
