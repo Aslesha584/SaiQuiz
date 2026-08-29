@@ -359,7 +359,7 @@ Available From: ${formattedStart}
 Available Until: ${formattedEnd}
 Time Limit: ${timeLimit} minutes
 
-Attend Quiz: ${window.location.origin}/join`;
+Attend Quiz: https://saiquiz.vercel.app/join`;
 
   return (
     <div className="create-page">
@@ -519,8 +519,8 @@ Attend Quiz: ${window.location.origin}/join`;
                 </span>
 
                 <strong>
-                  {window.location.origin}/join
-                </strong>
+    https://saiquiz.vercel.app/join
+  </strong>
 
               </div>
 

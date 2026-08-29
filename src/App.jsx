@@ -13,7 +13,6 @@ import Register from "./Register";
 import Login from "./Login";
 import Dashboard from "./Dashboard";
 import MyResults from "./MyResults";
-import StudentResults from "./StudentResults";
 import saiquizLogo from "./assets/saiquiz-logo.jpeg";
 
 

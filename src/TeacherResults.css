@@ -1,0 +1,449 @@
+
+.teacher-results-page {
+  min-height: 100vh;
+  background: #f7f8fa;
+  color: #171717;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.teacher-results-header {
+  height: 72px;
+  padding: 0 6%;
+  background: white;
+  border-bottom: 1px solid #e8e8e8;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.teacher-results-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.teacher-results-logo img {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.teacher-results-back {
+  border: 1px solid #dedede;
+  background: white;
+  padding: 10px 16px;
+
+  border-radius: 9px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.teacher-results-back:hover {
+  background: #f3f3f3;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.teacher-results-container {
+  width: 90%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+  padding: 55px 0;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.teacher-results-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  margin-bottom: 40px;
+}
+
+.teacher-results-label {
+  margin: 0 0 8px;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+
+  color: #777;
+}
+
+.teacher-results-heading h1 {
+  margin: 0;
+
+  font-size: 42px;
+  letter-spacing: -1.5px;
+}
+
+.teacher-results-heading p {
+  margin-top: 10px;
+
+  color: #666;
+  font-size: 16px;
+}
+
+
+/* =========================
+   COUNT
+========================= */
+
+.teacher-results-count {
+  background: white;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 14px;
+
+  padding: 16px 25px;
+
+  text-align: center;
+
+  min-width: 120px;
+}
+
+.teacher-results-count strong {
+  display: block;
+
+  font-size: 30px;
+}
+
+.teacher-results-count span {
+  color: #777;
+  font-size: 13px;
+}
+
+
+/* =========================
+   LOADING
+========================= */
+
+.teacher-results-loading {
+  min-height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: #666;
+}
+
+.loading-spinner {
+  width: 28px;
+  height: 28px;
+
+  border: 3px solid #ddd;
+  border-top: 3px solid #111;
+
+  border-radius: 50%;
+
+  animation: spin 0.8s linear infinite;
+
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.teacher-results-empty {
+  background: white;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 18px;
+
+  padding: 70px 20px;
+
+  text-align: center;
+}
+
+.teacher-empty-icon {
+  font-size: 45px;
+  margin-bottom: 15px;
+}
+
+.teacher-results-empty h2 {
+  margin-bottom: 8px;
+}
+
+.teacher-results-empty p {
+  color: #777;
+}
+
+
+/* =========================
+   QUIZ SECTION
+========================= */
+
+.teacher-results-quizzes {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.teacher-quiz-section {
+  background: white;
+
+  border: 1px solid #e4e4e4;
+  border-radius: 18px;
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   QUIZ HEADER
+========================= */
+
+.teacher-quiz-header {
+  padding: 24px 28px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 1px solid #ededed;
+}
+
+.teacher-quiz-label {
+  margin: 0 0 5px;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+
+  color: #888;
+}
+
+.teacher-quiz-header h2 {
+  margin: 0;
+
+  font-size: 23px;
+}
+
+.teacher-quiz-code {
+  background: #f4f4f4;
+
+  padding: 8px 12px;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #555;
+}
+
+
+/* =========================
+   STUDENT ROW
+========================= */
+
+.teacher-students-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.teacher-student-row {
+  display: grid;
+
+  grid-template-columns: 1.5fr 0.7fr 1fr;
+
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 20px 28px;
+
+  border-bottom: 1px solid #eeeeee;
+}
+
+.teacher-student-row:last-child {
+  border-bottom: none;
+}
+
+
+/* =========================
+   STUDENT INFO
+========================= */
+
+.teacher-student-info {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+}
+
+.teacher-student-avatar {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+
+  background: #eeeeee;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+}
+
+.teacher-student-info h3 {
+  margin: 0;
+
+  font-size: 16px;
+}
+
+.teacher-student-info p {
+  margin: 4px 0 0;
+
+  font-size: 13px;
+  color: #888;
+}
+
+
+/* =========================
+   SCORE
+========================= */
+
+.teacher-student-score {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+.teacher-student-score strong {
+  font-size: 18px;
+}
+
+.teacher-student-score strong span {
+  color: #888;
+  font-size: 14px;
+}
+
+.teacher-percentage {
+  padding: 5px 9px;
+
+  border-radius: 7px;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.teacher-percentage.good {
+  background: #e9f7ed;
+  color: #23833b;
+}
+
+.teacher-percentage.average {
+  background: #fff4dc;
+  color: #a66a00;
+}
+
+.teacher-percentage.low {
+  background: #fdecec;
+  color: #b43b3b;
+}
+
+
+/* =========================
+   SUBMITTED TIME
+========================= */
+
+.teacher-submitted-time span {
+  display: block;
+
+  font-size: 11px;
+  color: #999;
+}
+
+.teacher-submitted-time p {
+  margin: 4px 0 0;
+
+  font-size: 13px;
+  color: #555;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 750px) {
+
+  .teacher-results-header {
+    padding: 0 20px;
+  }
+
+  .teacher-results-container {
+    width: 92%;
+    padding: 35px 0;
+  }
+
+  .teacher-results-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .teacher-results-heading h1 {
+    font-size: 32px;
+  }
+
+  .teacher-results-count {
+    align-self: stretch;
+  }
+
+  .teacher-quiz-header {
+    padding: 20px;
+    gap: 15px;
+
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .teacher-student-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+
+    padding: 20px;
+  }
+
+  .teacher-student-score {
+    justify-content: space-between;
+  }
+
+}
+
