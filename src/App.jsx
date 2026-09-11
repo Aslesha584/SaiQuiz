@@ -114,7 +114,7 @@ function Home() {
         <div className="logo">
           <img
             src={saiquizLogo}
-            alt="SaiQuiz"
+            alt="SimpleQuiz"
             className="logo-image"
           />
         </div>
@@ -176,9 +176,9 @@ function Home() {
 
 
           <p className="hero-text">
-            Stop entering questions one by one. Paste your entire question
-            set and let SaiQuiz organize it for you.
-          </p>
+  Stop entering questions one by one. Paste your entire question
+  set and let SimpleQuiz organize it for you.
+</p>
 
 
           <div className="hero-actions">
@@ -371,7 +371,7 @@ function Home() {
           <div className="section-heading">
 
             <p className="preview-label">
-              WHY SAIQUIZ?
+              Why SimpleQuiz?
             </p>
 
             <h2>
@@ -452,7 +452,7 @@ function Home() {
 
           <img
             src={saiquizLogo}
-            alt="SaiQuiz"
+            alt="Simplequiz"
             className="logo-image"
           />
 

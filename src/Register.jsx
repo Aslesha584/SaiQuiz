@@ -67,10 +67,10 @@ function Register() {
           <div className="brand-logo">
   <img
     src={saiquizLogo}
-    alt="SaiQuiz"
+    alt="SimpleQuiz"
     className="register-logo-image"
   />
-  <span className="brand-name">SaiQuiz</span>
+  <span className="brand-name">SimpleQuiz</span>
 </div>
 
           <div className="brand-message">
@@ -88,12 +88,12 @@ function Register() {
 
             <p>
               Create quizzes, collect responses,
-              and make learning easier with SaiQuiz.
+              and make learning easier with SimpleQuiz.
             </p>
           </div>
 
           <div className="brand-footer">
-            © 2026 SaiQuiz
+            © 2026 SimpleQuiz
           </div>
 
         </div>
@@ -109,10 +109,10 @@ function Register() {
           <div className="mobile-logo">
   <img
     src={saiquizLogo}
-    alt="SaiQuiz"
+    alt="SimpleQuiz"
     className="register-logo-image"
   />
-  <span>SaiQuiz</span>
+  <span>SimpleQuiz</span>
 </div>
 
           <div className="register-heading">
@@ -126,7 +126,7 @@ function Register() {
             </h2>
 
             <p>
-              Join SaiQuiz and get started in seconds.
+              Join SimpleQuiz and get started in seconds.
             </p>
 
           </div>

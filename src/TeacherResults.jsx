@@ -69,10 +69,10 @@ function TeacherResults() {
         <div className="teacher-results-logo">
           <img
             src={saiquizLogo}
-            alt="SaiQuiz"
+            alt="SimpleQuiz"
           />
 
-          <span>SaiQuiz</span>
+          <span>SimpleQuiz</span>
         </div>
 
         <button

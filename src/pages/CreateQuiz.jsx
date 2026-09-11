@@ -369,7 +369,7 @@ Attend Quiz: https://saiquiz.vercel.app/join`;
         <div className="logo">
   <img
     src={saiquizLogo}
-    alt="SaiQuiz"
+    alt="SimpleQuiz"
     className="logo-image"
   />
 </div>
@@ -579,7 +579,7 @@ Attend Quiz: https://saiquiz.vercel.app/join`;
           <div className="logo">
   <img
     src={saiquizLogo}
-    alt="SaiQuiz"
+    alt="SimpleQuiz"
     className="logo-image"
   />
 </div>
@@ -608,7 +608,7 @@ Attend Quiz: https://saiquiz.vercel.app/join`;
 
             <div className="create-description">
               Paste your questions all at once.
-              SaiQuiz will organize them into
+              SimpleQuiz will organize them into
               individual questions.
             </div>
 
@@ -667,9 +667,9 @@ Attend Quiz: https://saiquiz.vercel.app/join`;
   </p>
 
   <button
-  type="button"
-  onClick={() => {
-    navigator.clipboard.writeText(`Create quiz questions for SaiQuiz.
+    type="button"
+    onClick={() => {
+      navigator.clipboard.writeText(`Create quiz questions for SimpleQuiz.
 
 IMPORTANT: The output format MUST be followed STRICTLY.
 
@@ -697,21 +697,33 @@ STRICT RULES:
 1. Start every question with Q1., Q2., Q3., Q4., etc.
 2. Use exactly four options for every question.
 3. Options MUST be written as A., B., C., D.
-4. The correct answer MUST be written exactly as Answer: A, Answer: B, Answer: C, or Answer: D.
-5. Do NOT use other formats such as 1), a), i), I), (A), etc.
-6. Do NOT add explanations, solutions, headings, or extra text.
-7. Every question MUST have one correct answer.
-8. The final output MUST contain only the quiz questions in this format.`);
+4. EACH option MUST be on its OWN separate line.
+5. There MUST be a line break after A. option, B. option, and C. option.
+6. NEVER place two or more options on the same line.
+7. NEVER write options continuously on one line such as:
+   A. Option 1 B. Option 2 C. Option 3 D. Option 4
+8. The correct answer MUST be written exactly as Answer: A, Answer: B, Answer: C, or Answer: D.
+9. Leave ONE blank line between the last option and the Answer line.
+10. Leave ONE blank line between the Answer line and the next question.
+11. Do NOT use other formats such as 1), a), i), I), (A), etc.
+12. Do NOT add explanations, solutions, headings, or extra text.
+13. Every question MUST have one correct answer.
+14. The final output MUST contain only the quiz questions in this exact format.
+15. Preserve the exact line-by-line structure shown in the example above.
+16. Do NOT combine, merge, or rearrange any question or option lines.
 
-    setCopied(true);
+FINAL CHECK BEFORE RESPONDING:
+Make sure every question has exactly four options, each option is on a separate line, and the Answer line is separated by a blank line. Output ONLY the quiz in the required format.`);
 
-    setTimeout(() => {
-      setCopied(false);
-    }, 2000);
-  }}
->
-  {copied ? "✓ Copied!" : "Copy ChatGPT Prompt"}
-</button>
+      setCopied(true);
+
+      setTimeout(() => {
+        setCopied(false);
+      }, 2000);
+    }}
+  >
+    {copied ? "✓ Copied!" : "Copy ChatGPT Prompt"}
+  </button>
 
 </div>
 
@@ -947,7 +959,7 @@ Answer: A`}
         <div className="logo">
   <img
     src={saiquizLogo}
-    alt="SaiQuiz"
+    alt="SimpleQuiz"
     className="logo-image"
   />
 </div>

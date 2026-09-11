@@ -38,10 +38,9 @@ mongoose
 // =========================
 // HOME ROUTE
 // =========================
-
 app.get("/", (req, res) => {
   res.json({
-    message: "SaiQuiz backend is running!",
+    message: "SimpleQuiz backend is running!",
   });
 });
 
@@ -550,8 +549,7 @@ app.get(
 // =========================
 // START SERVER
 // =========================
-
 app.listen(PORT, () => {
-  console.log(`SaiQuiz server running on port ${PORT}`);
+  console.log(`SimpleQuiz server running on port ${PORT}`);
 });
 

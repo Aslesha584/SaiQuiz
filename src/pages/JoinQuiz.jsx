@@ -339,7 +339,7 @@ const handleSubmitQuiz = async (automatic = false) => {
           <div className="logo">
   <img
     src={saiquizLogo}
-    alt="SaiQuiz"
+    alt="SimpleQuiz"
     className="logo-image"
   />
 </div>
@@ -490,7 +490,7 @@ const handleSubmitQuiz = async (automatic = false) => {
         <div className="logo">
   <img
     src={saiquizLogo}
-    alt="SaiQuiz"
+    alt="SimpleQuiz"
     className="logo-image"
   />
 </div>

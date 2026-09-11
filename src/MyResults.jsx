@@ -42,11 +42,11 @@ function MyResults() {
   <div className="results-logo">
   <img
     src={saiquizLogo}
-    alt="SaiQuiz"
+    alt="SimpleQuiz"
     className="results-logo-image"
   />
 
-  <span>SaiQuiz</span>
+  <span>SimpleQuiz</span>
 </div>
 </div>
 

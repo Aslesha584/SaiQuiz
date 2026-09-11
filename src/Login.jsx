@@ -74,12 +74,12 @@ function Login() {
 
             <img
               src={saiquizLogo}
-              alt="SaiQuiz"
+              alt="SimpleQuiz"
               className="login-logo-image"
             />
 
             <span className="login-logo-name">
-              SaiQuiz
+              SimpleQuiz
             </span>
 
           </div>
@@ -101,7 +101,7 @@ function Login() {
 
             <p>
               Continue creating, sharing and
-              completing quizzes with SaiQuiz.
+              completing quizzes with SimpleQuiz.
             </p>
 
           </div>
@@ -110,7 +110,7 @@ function Login() {
           {/* Brand Footer */}
 
           <div className="login-brand-footer">
-            © 2026 SaiQuiz
+            © 2026 SimpleQuiz
           </div>
 
         </div>
@@ -134,12 +134,12 @@ function Login() {
 
             <img
               src={saiquizLogo}
-              alt="SaiQuiz"
+              alt="SimpleQuiz"
               className="login-mobile-logo-image"
             />
 
             <span>
-              SaiQuiz
+              SimpleQuiz
             </span>
 
           </div>
@@ -156,7 +156,7 @@ function Login() {
             </p>
 
             <h2>
-              Sign in to SaiQuiz
+              Sign in to SimpleQuiz
             </h2>
 
             <p>

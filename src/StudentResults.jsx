@@ -49,7 +49,7 @@ function StudentResults() {
       <div className="logo">
   <img
     src={saiquizLogo}
-    alt="SaiQuiz"
+    alt="SimpleQuiz"
     className="logo-image"
   />
 </div>

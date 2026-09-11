@@ -24,11 +24,11 @@ function Dashboard() {
        <div className="dashboard-logo">
   <img
     src={saiquizLogo}
-    alt="SaiQuiz"
+    alt="SimpleQuiz"
     className="dashboard-logo-image"
   />
 
-  <span>SaiQuiz</span>
+  <span>SimpleQuiz</span>
 </div>
         <button
           className="logout-button"
