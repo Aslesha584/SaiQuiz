@@ -547,6 +547,115 @@ app.get(
   }
 );
 // =========================
+// GET TEACHER'S OWN QUIZZES
+// =========================
+
+app.get(
+   "/api/teacher/quizzes",
+  authMiddleware,
+  async (req, res) => {
+    try {
+      // Only teachers can access their quizzes
+      if (req.user.role !== "teacher") {
+        return res.status(403).json({
+          message: "Only teachers can view their quizzes",
+        });
+      }
+
+      // Find only quizzes created by this teacher
+      const quizzes = await Quiz.find({
+        teacherId: req.user.id,
+      }).sort({ createdAt: -1 });
+
+      // Add submission count to every quiz
+      const quizzesWithStats = await Promise.all(
+        quizzes.map(async (quiz) => {
+          const submissionCount =
+            await Submission.countDocuments({
+              quizId: quiz._id,
+            });
+
+          return {
+            _id: quiz._id,
+            title: quiz.title,
+            quizCode: quiz.quizCode,
+            questionCount: quiz.questions.length,
+            availableFrom: quiz.availableFrom,
+            availableUntil: quiz.availableUntil,
+            timeLimit: quiz.timeLimit,
+            submissionCount,
+            createdAt: quiz.createdAt,
+          };
+        })
+      );
+
+      res.json({
+        quizzes: quizzesWithStats,
+      });
+    } catch (error) {
+      console.error("Error fetching teacher quizzes:", error);
+
+      res.status(500).json({
+        message: "Failed to fetch teacher quizzes",
+      });
+    }
+  }
+);
+
+
+// =========================
+// DELETE TEACHER'S QUIZ
+// =========================
+
+app.delete(
+  "/api/quizzes/:quizId",
+  authMiddleware,
+  async (req, res) => {
+    try {
+      // Only teachers can delete quizzes
+      if (req.user.role !== "teacher") {
+        return res.status(403).json({
+          message: "Only teachers can delete quizzes",
+        });
+      }
+
+      const { quizId } = req.params;
+
+      // Find quiz belonging to this teacher
+      const quiz = await Quiz.findOne({
+        _id: quizId,
+        teacherId: req.user.id,
+      });
+
+      if (!quiz) {
+        return res.status(404).json({
+          message: "Quiz not found or you are not allowed to delete it",
+        });
+      }
+
+      // Delete quiz
+      await Quiz.deleteOne({
+        _id: quizId,
+      });
+
+      // Delete submissions belonging to this quiz
+      await Submission.deleteMany({
+        quizId: quizId,
+      });
+
+      res.json({
+        message: "Quiz deleted successfully",
+      });
+    } catch (error) {
+      console.error("Error deleting quiz:", error);
+
+      res.status(500).json({
+        message: "Failed to delete quiz",
+      });
+    }
+  }
+);
+// =========================
 // START SERVER
 // =========================
 app.listen(PORT, () => {
