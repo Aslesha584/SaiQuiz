@@ -352,10 +352,7 @@ if (!response.ok) {
 }
 
 
-if (!aiText) {
-  return res.status(500).json({
-    message: "AI returned an empty response",
-  });const data = await response.json();
+const data = await response.json();
 
 console.log(
   "OPENROUTER RAW RESPONSE:",
@@ -364,6 +361,11 @@ console.log(
 
 const aiText =
   data?.choices?.[0]?.message?.content;
+
+if (!aiText) {
+  return res.status(500).json({
+    message: "AI returned an empty response",
+  });
 }
       // =========================
       // PARSE AI RESPONSE
