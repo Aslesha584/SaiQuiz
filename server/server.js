@@ -3,7 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const { GoogleGenAI, Type } = require("@google/genai");
+
 
 const User = require("./models/User");
 const Quiz = require("./models/Quiz");
@@ -26,9 +26,6 @@ const PORT = process.env.PORT || 5000;
 // GEMINI AI
 // =========================
 
-const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY,
-});
 
 
 // =========================
@@ -306,92 +303,69 @@ selecting the correct answer.
 
 Return ONLY the requested JSON structure.
 `;
+// =========================
+// OPENROUTER REQUEST
+// =========================
 
-      // =========================
-      // GEMINI REQUEST
-      // =========================
+const response = await fetch(
+  "https://openrouter.ai/api/v1/chat/completions",
+  {
+    method: "POST",
 
-      const response = await ai.models.generateContent({
-        model: "gemini-3.8-flash",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
+      "HTTP-Referer": "https://simple-quiz-black.vercel.app/",
+      "X-Title": "SimpleQuiz",
+    },
 
-        contents: prompt,
+    body: JSON.stringify({
+      model: "openrouter/free",
 
-        config: {
-          responseMimeType: "application/json",
-
-          responseSchema: {
-            type: Type.OBJECT,
-
-            properties: {
-              questions: {
-                type: Type.ARRAY,
-
-                items: {
-                  type: Type.OBJECT,
-
-                  properties: {
-                    question: {
-                      type: Type.STRING,
-                    },
-
-                    code: {
-                      type: Type.STRING,
-                    },
-
-                    options: {
-                      type: Type.OBJECT,
-
-                      properties: {
-                        A: {
-                          type: Type.STRING,
-                        },
-
-                        B: {
-                          type: Type.STRING,
-                        },
-
-                        C: {
-                          type: Type.STRING,
-                        },
-
-                        D: {
-                          type: Type.STRING,
-                        },
-                      },
-
-                      required: [
-                        "A",
-                        "B",
-                        "C",
-                        "D",
-                      ],
-                    },
-
-                    answer: {
-                      type: Type.STRING,
-                    },
-                  },
-
-                  required: [
-                    "question",
-                    "code",
-                    "options",
-                    "answer",
-                  ],
-                },
-              },
-            },
-
-            required: ["questions"],
-          },
+      messages: [
+        {
+          role: "user",
+          content: prompt,
         },
-      });
+      ],
 
+      response_format: {
+        type: "json_object",
+      },
+    }),
+  }
+);
+
+if (!response.ok) {
+  const errorText = await response.text();
+
+  console.error(
+    "OpenRouter API error:",
+    response.status,
+    errorText
+  );
+
+  return res.status(500).json({
+    message: "AI provider request failed",
+    error: errorText,
+  });
+}
+
+const data = await response.json();
+
+const aiText =
+  data?.choices?.[0]?.message?.content;
+
+if (!aiText) {
+  return res.status(500).json({
+    message: "AI returned an empty response",
+  });
+}
       // =========================
       // PARSE AI RESPONSE
       // =========================
 
-      const result = JSON.parse(response.text);
+      const result = JSON.parse(aiText);
 
       // =========================
       // BASIC VALIDATION
