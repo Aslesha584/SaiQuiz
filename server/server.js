@@ -351,15 +351,19 @@ if (!response.ok) {
   });
 }
 
-const data = await response.json();
-
-const aiText =
-  data?.choices?.[0]?.message?.content;
 
 if (!aiText) {
   return res.status(500).json({
     message: "AI returned an empty response",
-  });
+  });const data = await response.json();
+
+console.log(
+  "OPENROUTER RAW RESPONSE:",
+  JSON.stringify(data, null, 2)
+);
+
+const aiText =
+  data?.choices?.[0]?.message?.content;
 }
       // =========================
       // PARSE AI RESPONSE
